@@ -3,7 +3,7 @@
 **Threat Hunt Report | Pacific Watch SOC | Windows Endpoint `NL-WS01`**
 
 **Environment:** Simulated SOC investigation in an Azure cyberrange  
-**Platform:** Microsoft Sentinel / Azure Log Analytics (KQL)  
+**Platform:** Microsoft Sentinel / Azure Log Analytics 
 **Investigation window:** October 15, 2026, 10:00–17:00 UTC  
 **Affected host:** `NL-WS01` (`10.1.10.4`), assigned to `sarah.cole`
 
