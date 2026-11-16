@@ -452,4 +452,3 @@ The challenge's Case File also lists **T1074 — Data Staged**, but the staging 
 
 ---
 
-**Evidence presentation:** KQL shown above is reproduced from the saved Log Analytics investigation queries, with only whitespace layout adjusted where needed. Screenshots are the original investigation captures. Questions answered by a previously saved query reuse the same evidence instead of adding duplicate query blocks. The staging search was transcribed from its original query-and-results screenshot.
