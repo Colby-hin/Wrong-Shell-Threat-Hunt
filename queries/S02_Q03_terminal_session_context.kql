@@ -1,0 +1,8 @@
+SysmonProcess_CL
+| where Computer contains "NL-WS01"
+| extend EventTime = todatetime(OriginalTime)
+| where EventTime between (datetime(2026-10-15 10:00:00) .. datetime(2026-10-15 17:00:00))
+| where Image contains "svchost1.exe"
+| where tostring(ProcessId) == "6468"
+| project EventTime, Image, ProcessId, TerminalSessionId, User, ParentImage
+| order by EventTime asc

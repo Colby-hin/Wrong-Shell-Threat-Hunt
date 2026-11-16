@@ -1,0 +1,7 @@
+SecurityEvent_CL
+| where Computer contains "NL-WS01"
+| where toint(EventID) in (4732, 4704)
+| extend EventTime = todatetime(OriginalTime)
+| where EventTime between (datetime(2026-10-15 10:00:00) .. datetime(2026-10-15 17:00:00))
+| project EventTime, EventID, Account, Activity
+| order by EventTime asc

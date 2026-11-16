@@ -1,0 +1,17 @@
+SysmonProcess_CL
+| where Computer contains "NL-WS01"
+| extend EventTime = todatetime(OriginalTime)
+| where EventTime between (datetime(2026-10-15 10:07:52) .. datetime(2026-10-15 17:00:00))
+| where tostring(ParentProcessId) == "6468"
+    or ParentImage contains "svchost1.exe"
+    or Image endswith @"\cmd.exe"
+    or Image endswith @"\powershell.exe"
+| project
+    EventTime,
+    User,
+    Image,
+    CommandLine,
+    ParentImage,
+    ParentProcessId,
+    ProcessId
+| order by EventTime asc

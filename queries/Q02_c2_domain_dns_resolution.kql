@@ -1,0 +1,9 @@
+SysmonDNS_CL
+| where Computer contains "NL-WS01"
+| extend EventTime = todatetime(OriginalTime)
+| where EventTime between (datetime(2026-10-15 10:00:00) .. datetime(2026-10-15 17:00:00))
+| where Image contains "svchost1.exe"
+    or QueryResults contains "5.182.33.151"
+    or QueryResults contains "185.196.9.213"
+| project EventTime, Computer, Image, QueryName, QueryResults
+| order by EventTime asc

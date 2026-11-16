@@ -1,0 +1,8 @@
+SecurityEvent_CL
+| where Computer contains "NL-WS01"
+| where tostring(EventID) == "4624"
+| where IpAddress == "187.15.135.77"
+| extend EventTime = todatetime(OriginalTime)
+| where EventTime between (datetime(2026-10-15 10:00:00) .. datetime(2026-10-15 10:10:00))
+| project EventTime, Account, IpAddress, LogonType, WorkstationName, AuthenticationPackageName
+| order by EventTime asc

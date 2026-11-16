@@ -1,0 +1,7 @@
+SysmonProcess_CL
+| where Computer contains "NL-WS01"
+| extend EventTime = todatetime(OriginalTime)
+| where EventTime between (datetime(2026-10-15 10:00:00) .. datetime(2026-10-15 14:02:17))
+| where CommandLine has_any ("zip", "7z", "rar", "tar", "compress", "copy", "xcopy", "robocopy", "move", "makecab", "compact")
+| project EventTime, User, Image, CommandLine, ParentImage, ParentProcessId, ProcessId
+| order by EventTime asc

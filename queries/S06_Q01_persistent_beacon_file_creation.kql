@@ -1,0 +1,7 @@
+SysmonFileCreate_CL
+| where Computer contains "NL-WS01"
+| extend EventTime = todatetime(OriginalTime)
+| where EventTime between (datetime(2026-10-15 15:00:00) .. datetime(2026-10-15 17:00:00))
+| where TargetFilename endswith ".exe"
+| project EventTime, Computer, Image, TargetFilename
+| order by EventTime asc
